@@ -50,3 +50,13 @@ Change controller in `Module.php`:
 
     $controller = $e->getTarget();
     $controller->layout('layout/alternativelayout');
+
+Load JavaScript in specific controllers:
+
+    use Zend\View\Renderer\PhpRenderer;
+
+    public function some_controllerAction()
+    {
+        $headScript = new PhpRenderer();
+        $headScript->headScript()->appendFile('/js/test.js');
+    }
